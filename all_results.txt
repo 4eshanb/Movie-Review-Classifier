@@ -1,0 +1,645 @@
+1)
+################################################################
+First test on development data using word features. An accuracy 
+of 78% is acheived without using binning. 
+
+Results of imdb-development.data:
+
+Accuracy    0.78000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 17<33>|
+---------+-------+
+(row = reference; col = test)
+
+The accuracy of testing the training model with the testing data using
+word features as the feature set without binning was 73%
+    
+Results of imdb-testing.data:
+
+Accuracy    0.73000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<44> 6 |
+positive | 21<29>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+
+2)
+################################################################
+THIS WAS A FAILED ATTEMPT AT BINNING: the binning argument in python
+would always evaluate to true when testing with false or true.
+Second test on development data using binning with word features. The 
+binning values used were the default values,  "return count if count < 2 else 3". 
+An accuracy of 50% was acheived. 
+
+Results of imdb-development.data:
+
+Accuracy    0.50000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative | <.>50 |
+positive |  .<50>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+3)
+################################################################
+
+This was the accuracy of the training model on the development data
+for word features with binning. The values were"return count if count < 2 else 3",
+or in other words, the default. This yielded an accuracy of 80%.
+
+Results of imdb-development.data:
+
+Accuracy    0.80000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<46> 4 |
+positive | 16<34>|
+---------+-------+
+(row = reference; col = test)
+
+However, when using binning on word features with the default
+binning values provided reduced the accuracy to 71% from 80%. 
+Therefore, we must use different bin values to get a higher acc
+
+Results of imdb-testing.data:
+
+Accuracy    0.71000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 24<26>|
+---------+-------+
+(row = reference; col = test)
+
+
+################################################################
+
+
+4)
+################################################################
+
+Using word_pos_features without binning yielded an accuracy of 63%
+on the development data.  
+
+Results of imdb-development.data:
+
+Accuracy    0.63000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<44> 6 |
+positive | 31<19>|
+---------+-------+
+(row = reference; col = test)
+
+
+Testing on the word pos features with the testing data yielded an 
+accuracy of 60% is acheived without using binning, which is considerably
+lower than that of using word_features.
+
+Results of imdb-testing.data:
+
+Accuracy    0.60000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<44> 6 |
+positive | 34<16>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+5)
+################################################################
+
+Using word_pos_features with binning still yielded an accuracy of 63%
+on the development data.  
+
+Results of imdb-development.data:
+
+Accuracy    0.63000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 32<18>|
+---------+-------+
+(row = reference; col = test)
+
+
+However Testing on the word pos features with the testing data yielded an 
+accuracy of 65% is acheived with binning, so it increased in percentage
+with the testing data rather than the development data.
+
+Results of imdb-testing.data:
+
+Accuracy    0.65000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<46> 4 |
+positive | 31<19>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+6)
+################################################################
+Using word_features as a category when the binning values are 
+intialized to 10 if count < 30 else 60 yields a percentage of 80.
+the development data was used in this test.
+
+Results of imdb-development.data:
+
+Accuracy    0.80000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<46> 4 |
+positive | 16<34>|
+---------+-------+
+(row = reference; col = test)
+
+The accuracy of testing the training model with the testing data using
+word features as the feature set with binning(10,30,60) was 71%. Therefore,
+changing the binning values to 10, 30, and 60 respecively had no change
+in results compared to the first binning experiment with word features.
+    
+Results of imdb-testing.data:
+
+Accuracy    0.71000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 24<26>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+7)
+################################################################
+Using word_pos_opinion_features as a category when the not binning the word
+and pos features yields a percentage of 67 when testing on
+the development data was used in this test.
+
+Results of imdb-development.data:
+
+Accuracy    0.67000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<43> 7 |
+positive | 26<24>|
+---------+-------+
+(row = reference; col = test)
+
+Using word_pos_opinion_features as a category when the not binning the word
+and pos features yields a percentage of 70 when testing on the testing data 
+was used in this test. Therefore, the percentage increased compared to testing
+on the development data.
+
+    
+Results of imdb-testing.data:
+
+Accuracy    0.70000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 25<25>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+8)
+################################################################
+Using word_pos_liwc_features as a category when the not binning the word
+and pos features yields a percentage of 63 when testing on
+the development data was used in this test.
+
+Results of imdb-development.data:
+
+Accuracy    0.63000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<44> 6 |
+positive | 31<19>|
+---------+-------+
+(row = reference; col = test)
+
+Using word_pos_liwc_features as a category when the not binning the word
+and pos features yields a percentage of 64 when testing on the testing data 
+was used in this test. Therefore, the percentage barely increased compared to testing
+on the development data.
+
+    
+Results of imdb-testing.data:
+
+Accuracy    0.64000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 25<25>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+9)
+################################################################
+Using word_pos_opinion_features as a category when binning the word
+and pos features yields a percentage of 72 when testing on
+the development data was used in this test.
+
+Results of imdb-development.data:
+
+Accuracy    0.72000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<46> 4 |
+positive | 24<26>|
+---------+-------+
+(row = reference; col = test)
+
+Using word_pos_opinion_features as a category when binning the word
+and pos features yields a percentage of 69 when testing on the testing data 
+was used in this test. Therefore, the percentage decreased compared to testing
+on the development data.
+
+    
+Results of imdb-testing.data:
+
+Accuracy    0.69000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<45> 5 |
+positive | 25<25>|
+---------+-------+
+(row = reference; col = test)
+
+################################################################
+
+
+Therefore, the best features using the test data as the eval file 
+is word_features without binning, with an accuracy of 73%.
+
+
+
+Part 2.1 
+
+BernoulliNB Classifier on dev data using best feature(word_feature w/o binning)
+
+Results of imdb-development.data:
+
+Accuracy    0.71000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<25>25 |
+positive |  4<46>|
+---------+-------+
+(row = reference; col = test)
+
+Results of imdb-testing.data:
+
+BernoulliNB Classifier on test data using best feature(word_feature w/o binning)
+
+Accuracy    0.70000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<22>28 |
+positive |  2<48>|
+---------+-------+
+(row = reference; col = test)
+
+Decision Tree Classifier on dev data using best feature(word_feature w/o binning)
+
+Results of imdb-development.data:
+
+Accuracy    0.59000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<31>19 |
+positive | 22<28>|
+---------+-------+
+(row = reference; col = test)
+
+Decision Tree Classifier on test data using best feature(word_feature w/o binning)
+
+Results of imdb-testing.data:
+
+Accuracy    0.58000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<28>22 |
+positive | 20<30>|
+---------+-------+
+(row = reference; col = test)
+
+
+Part 2.2.2
+
+Results of imdb-development.data:
+
+SVM on dev data using best feature(word_feature w/o binning)
+
+Accuracy    0.63000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<19>31 |
+positive |  6<44>|
+---------+-------+
+(row = reference; col = test)
+
+SVM on test data using best feature(word_feature w/o binning)
+
+Results of imdb-testing.data:
+
+Accuracy    0.55000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<14>36 |
+positive |  9<41>|
+---------+-------+
+(row = reference; col = test)
+
+
+SVM on dev data using word_embeddings
+
+Results of imdb-development.data:
+
+Accuracy    0.72000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<35>15 |
+positive | 13<37>|
+---------+-------+
+(row = reference; col = test)
+
+SVM on test data using word_embeddings
+
+Results of imdb-testing.data:
+
+Accuracy    0.74000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<43> 7 |
+positive | 19<31>|
+---------+-------+
+(row = reference; col = test)
+
+
+Part 2.3
+
+Results of imdb-development.data:
+
+NN(MLP) Classifier on dev data using word_embeddings
+
+Accuracy    0.73000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<34>16 |
+positive | 11<39>|
+---------+-------+
+(row = reference; col = test)
+
+NN(MLP) Classifier on test data using word_embeddings
+
+Results of imdb-testing.data:
+
+Accuracy    0.80000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<43> 7 |
+positive | 13<37>|
+---------+-------+
+(row = reference; col = test)
+
+
