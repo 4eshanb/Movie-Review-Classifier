@@ -1,0 +1,19 @@
+Results of imdb-testing.data:
+
+Accuracy    0.73000
+
+         |  n  p |
+         |  e  o |
+         |  g  s |
+         |  a  i |
+         |  t  t |
+         |  i  i |
+         |  v  v |
+         |  e  e |
+---------+-------+
+negative |<44> 6 |
+positive | 21<29>|
+---------+-------+
+(row = reference; col = test)
+
+

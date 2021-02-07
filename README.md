@@ -52,7 +52,7 @@ Instructions for installing scikit-learn can be found at scikit-learn.org/stable
 
 http://scikit-learn.org/
 
-#### Naive Bayes and Decision Tree Classifiers
+### Naive Bayes and Decision Tree Classifiers
 
 The scikit-learn versions of Naive Bayes (BernoulliNB is equivalent to nltk
 version) and Decision Tree classifiers are also used to classify the IMDB movie reviews.
@@ -64,13 +64,30 @@ Refer to all-tables.pdf and all_results.txt to see results.
 A new type of Machine Learning model called the Support Vector Machine (SVM) is used to classify
 the reviews. Word embeddings are used to see how they compare against our best feature set.
 
-#### Word Embeddings
-Create a feature set by embedding the review text using pre-trained word embeddings. We will be using
-a custom version of Word2Vec pre-trained word embeddings. We have provided you with a stub code file
-word2vec extractor.py that implements some helper functions useful for turning words, sentences and
-documents into vectors.
-• You will use provided Glove embedding under asg4-data/glove-w2v.txt.
-• You will need to install Gensim2
+### Word Embeddings
+A feature set is created by embedding the review text using pre-trained word embeddings. 
+A custom version of Word2Vec pre-trained word embeddings is used. The code file
+word2vec_extractor.py implements some helper functions useful for turning words, sentences and
+documents into vectors.  
+> The Glove embedding under total-data/glove-w2v.txt.  
+Gensim must also be installed.  
+
+/radimrehurek.com/gensim/install  
+
+Two SVMs are created:
+1. An SVM using the single best feature set extracted earlier   
+2. Train an SVM using only the word embedding features  
+
+Refer to all-results.txt and all-tables.pdf for results
+
+
+### Neural Network
+The Multi-layer Perceptron (MLP) classifier is used to classify the reviews.  
+The MLP classifier using only the word embedding features.
+
+Refer to all-results.txt and all-tables.pdf for results
+
+
 
 This was for an assignment in CSE 143 at UCSC with Professor Dilek Hakkani-Tür.
 

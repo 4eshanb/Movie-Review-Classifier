@@ -1,0 +1,11 @@
+Arguments
+'-isTrain', dest="is_train", action="store_true", help='Is it for training or testing'
+'-cls', dest="classifier_type", default="nb",help='The classifier type is used for training'
+'-train', dest="train_fname", default= "imdb-training.data", help='File Name of the Training Data'
+'-eval', dest="eval_fname", help='File Name for evaluation'
+'-c', dest="classifier_fname", default="nb-word_features-classifier.pickle",help='File name of the classifier pickle.'
+'-o', dest="output_fname", default="nb-word_features-test.txt", help='Output file name.' (for predictions)
+'-f', dest="feature_set", default="word_features", help='Feature set: word_features, word_pos_features, etc')
+
+'-b', dest="binning", default=False, help='Binning:True or False'
+'-test', dest="testing_file", default="imdb-testing.data",help='testing data for select features'
