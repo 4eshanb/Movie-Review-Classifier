@@ -19,6 +19,7 @@ occurs 2 times, and the bigram the food occurs 1 time.
 The string vectors the same as before except now using the raw counts.   
 Hence the new feature vector from the previous example would now be:  
 > UNI_the:10 UNI_food:2 BIGRAM_the_food:1
+
 If you apply binning, with results in bins of 0, 1, 2, or 3, the new feature vector from the previous example
 now becomes:  
 > UNI_the:3 UNI_food:2 BIGRAM_the_food:1  
