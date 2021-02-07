@@ -24,4 +24,54 @@ If you apply binning, with results in bins of 0, 1, 2, or 3, the new feature vec
 now becomes:  
 > UNI_the:3 UNI_food:2 BIGRAM_the_food:1  
 
+In the implementation I use, bins of 10 are used if the raw count of a feature is less than 30, else bins of
+60 are used.
+
+### Naive Bayes Feature Selection
+
+Using the model that performed best in my Naive Bayes Classifier repository, feature selection is perfoemed to
+determine what number of features that return the highest accuracy. 
+This was using the word frequencies rather than the 
+relative frequencies with ngram features. It recieved 73 percent accuracy on the testing data and 78 percent accuracy 
+in development data.
+In this case, weare only interested in using the word features (unigram bigram and trigram), and can disregard the POS,
+LIWC, opinion features in this case. 
+One example of how to do feature selection is given to you in the main of
+movie_reviews.py. It loops through the 10,000 best features returned by most informative features,
+and for each loop it looks at some subset of the features. For every loop, it returns the accuracy of that
+subset of features on the development data. Once it has determined which subset of features produces the
+highest accuracy, it uses those same features to evaluate the testing data. 
+
+You can see results in all-tables.pdf and all_results.txt
+
+### Scikit-Learn Classifiers
+
+The current machine learning model for Naive Bayes is used from NLTK. Now, I will use
+different Machine Learning library for Python called scikit-learn.
+Instructions for installing scikit-learn can be found at scikit-learn.org/stable/install .
+
+http://scikit-learn.org/
+
+#### Naive Bayes and Decision Tree Classifiers
+
+The scikit-learn versions of Naive Bayes (BernoulliNB is equivalent to nltk
+version) and Decision Tree classifiers are also used to classify the IMDB movie reviews.
+The single best set of features extracted earlier is used.
+
+Refer to all-tables.pdf and all_results.txt to see results.
+
+### Support Vector Machine
+A new type of Machine Learning model called the Support Vector Machine (SVM) is used to classify
+the reviews. Word embeddings are used to see how they compare against our best feature set.
+
+#### Word Embeddings
+Create a feature set by embedding the review text using pre-trained word embeddings. We will be using
+a custom version of Word2Vec pre-trained word embeddings. We have provided you with a stub code file
+word2vec extractor.py that implements some helper functions useful for turning words, sentences and
+documents into vectors.
+• You will use provided Glove embedding under asg4-data/glove-w2v.txt.
+• You will need to install Gensim2
+
+This was for an assignment in CSE 143 at UCSC with Professor Dilek Hakkani-Tür.
+
 
